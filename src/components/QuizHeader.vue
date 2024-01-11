@@ -1,8 +1,14 @@
+<script setup>
+import { defineProps } from 'vue'
+const { questionStatus, barProgress } = defineProps(['questionStatus', 'barProgress'])
+</script>
+
 <template>
   <header>
-    <h2>Question 1/3</h2>
+    <p>{{ barProgress }}</p>
+    <h2>Question {{ questionStatus }}</h2>
     <div class="bar">
-      <div class="completion"></div>
+      <div class="completion" :style="{ width: barProgress }"></div>
     </div>
   </header>
 </template>
@@ -24,7 +30,7 @@ header h2 {
 
 .completion {
   height: 100%;
-  width: 10%;
+  width: 0%;
   background-color: #79a875;
 }
 </style>
